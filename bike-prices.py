@@ -52,3 +52,28 @@ floatcols = df_bike.select_dtypes(include = ['float64']).columns
 df_bike = pd.get_dummies(df_bike, columns = catcols)
    
 print('New Number of Features: %d'%(df_bike.shape[1]))  
+
+## Histograma de Precio de Venta Motocicletas
+
+font1 = {'family': 'Segoe UI',
+        'color':  'black',
+        'weight': 'bold',
+        'size': 14,
+        }
+
+font2 = {'family': 'Segoe UI',
+        'color':  'black',
+        'weight': 'semibold',
+        'size': 12,
+        }
+
+plt.hist(x = df_bike['Selling_Price'], color= '#1849d9', edgecolor='k', bins=30, range=(df_bike['Selling_Price'].min(), 300000))
+plt.title('Histograma: Precio de Venta Motocicletas', fontdict= font1)
+plt.xlabel('Precio', fontdict= font2)
+plt.ylabel('Frecuencia', fontdict= font2)
+plt.axvline(df_bike['Selling_Price'].mean(), color='k', linestyle='dashed', linewidth=1)
+min_ylim, max_ylim = plt.ylim()
+plt.text(df_bike['Selling_Price'].mean()*1.2, max_ylim*0.85, 'Media: ${:.2f}'.format(df_bike['Selling_Price'].mean()))
+
+plt.savefig('images/Histograma_Precio_Moto.png')
+plt.show()
