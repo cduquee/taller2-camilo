@@ -67,7 +67,7 @@ font2 = {'family': 'Segoe UI',
         'size': 15,
         }
 
-plt.hist(x = df_bike['Selling_Price'], color= '#22f5d2', bins=25, range=(df_bike['Selling_Price'].min(), 300000))
+plt.hist(x = df_bike['Selling_Price'], color= '#ebb2c6', bins=25, range=(df_bike['Selling_Price'].min(), 300000))
 plt.title('Histograma: Precio de Venta Motocicletas', fontdict= font1)
 plt.xlabel('Precio', fontdict= font2)
 plt.ylabel('Frecuencia', fontdict= font2)
